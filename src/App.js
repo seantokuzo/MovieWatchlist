@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Header from './components/Header.js'
+import SearchPage from './components/SearchPage.js'
+import Watchlist from './components/Watchlist.js'
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false)
+  const [showWatchlist, setShowWatchlist] = useState(false)
+  console.log(showWatchlist)
+
+  const bgStyle = {
+    backgroundColor: darkMode ? 'var(--bg-dark)' : 'var(--bg-light)',
+    color: darkMode ? 'var(--text-dm)' : 'var(--text-lm)',
+  }
+
+  function toggleWatchlist() {
+    setShowWatchlist((prevState) => !prevState)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    // <main style={bgStyle}>
+    <main style={bgStyle}>
+      <Header showWatchlist={showWatchlist} toggleWatchlist={toggleWatchlist} />
+      {showWatchlist ? <Watchlist /> : <SearchPage darkMode={darkMode} />}
+    </main>
+  )
 }
 
-export default App;
+export default App
