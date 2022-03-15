@@ -15,7 +15,7 @@ export default function SearchPage(props) {
     fetch(`http://www.omdbapi.com/?apikey=${cjKey}&s=${e.target.value}&page=1`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        // console.log(data)
         if (data.Error === 'Incorrect IMDb ID.') {
           setNoResults(false)
           setMovieCards([])
