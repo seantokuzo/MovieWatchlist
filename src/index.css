@@ -1,6 +1,6 @@
 :root {
   --bg-light: #faf6f2;
-  --bg-dark: #242325;
+  --bg-dark: #121212;
   --text-lm: #000;
   --text-dm: #fff;
   --search-text: #444444;
@@ -67,8 +67,9 @@ header > h5 {
   margin-top: 20px;
 }
 
-input[type='text'] {
+input[type='search'] {
   width: 50vw;
+  min-width: 300px;
   position: absolute;
   z-index: 9;
   top: 23vh;
@@ -120,7 +121,7 @@ input[type='text'] {
   display: flex;
   align-items: center;
 
-  border: 1px solid pink;
+  /* border: 1px solid pink; */
 }
 
 .card-title-div > h2 {
@@ -149,6 +150,7 @@ input[type='text'] {
 }
 
 .card-details-div > * {
+  margin: 0;
   margin-right: 20px;
 }
 
@@ -156,9 +158,11 @@ input[type='text'] {
   background: none;
   border: none;
 
-  cursor: pointer;
+  font-family: 'Inter', sans-serif;
 
   margin-right: 0;
+
+  cursor: pointer;
 }
 
 .card-details-div > button > i {
@@ -166,9 +170,25 @@ input[type='text'] {
   margin-right: 3px;
 }
 
-.card-plot-div > p {
-  font-size: 0.95em;
-  overflow: hidden;
+.card-plot-div {
+  width: 95%;
+  max-height: 180px;
 
-  border: 1px solid pink;
+  margin-top: 0.5em;
+
+  overflow: hidden;
+  /* border: 1px solid pink; */
+}
+
+.card-plot-div > p {
+  margin: 0;
+  font-size: 0.95em;
+
+  /* border: 1px solid pink; */
+}
+
+@media (max-width: 500px) {
+  .card-plot-div {
+    max-height: 80px;
+  }
 }

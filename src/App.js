@@ -4,7 +4,7 @@ import SearchPage from './components/SearchPage.js'
 import Watchlist from './components/Watchlist.js'
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState(true)
   const [showWatchlist, setShowWatchlist] = useState(false)
   console.log(showWatchlist)
 

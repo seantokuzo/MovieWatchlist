@@ -5,6 +5,10 @@ export default function MovieCard(props) {
     color: props.darkMode ? 'var(--plot-dm)' : 'var(--plot-lm)',
   }
 
+  const buttonColor = {
+    color: props.darkMode ? '#fff' : '#000',
+  }
+
   return (
     <div className="movie-card-div">
       <img src={props.poster} alt="Movie Title"></img>
@@ -17,7 +21,7 @@ export default function MovieCard(props) {
         <div className="card-details-div">
           <p>{props.runtime}</p>
           <p>{props.genre}</p>
-          <button>
+          <button style={buttonColor}>
             <i className="fa-solid fa-circle-plus"></i> Watchlist
           </button>
         </div>
