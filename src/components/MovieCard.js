@@ -9,21 +9,41 @@ export default function MovieCard(props) {
     color: props.darkMode ? '#fff' : '#000',
   }
 
+  const addOrDeleteButton = props.watchlist ? (
+    <button style={buttonColor} onClick={() => props.removeFromWatchlist(props.poster)}>
+      <i className="fa-solid fa-circle-minus"></i> Remove from Watchlist
+    </button>
+  ) : (
+    <button
+      style={buttonColor}
+      onClick={() =>
+        props.addToWatchlist(
+          props.poster,
+          props.title,
+          props.rating,
+          props.runtime,
+          props.genre,
+          props.plot
+        )
+      }
+    >
+      <i className="fa-solid fa-circle-plus"></i> Watchlist
+    </button>
+  )
+
   return (
     <div className="movie-card-div">
-      <img src={props.poster} alt="Movie Title"></img>
+      <img src={props.poster} alt="Movie Poster"></img>
       <div className="card-non-img-div">
         <div className="card-title-div">
-          <h2>{props.title}</h2>
-          <i class="fa-solid fa-star"></i>
+          <h2>{props.title ? props.title : 'Title not available'}</h2>
+          <i className="fa-solid fa-star"></i>
           <p>{props.rating}</p>
         </div>
         <div className="card-details-div">
           <p>{props.runtime}</p>
           <p>{props.genre}</p>
-          <button style={buttonColor}>
-            <i className="fa-solid fa-circle-plus"></i> Watchlist
-          </button>
+          {addOrDeleteButton}
         </div>
         <div className="card-plot-div">
           <p style={plotStyle}>{props.plot}</p>
@@ -38,3 +58,10 @@ export default function MovieCard(props) {
 // Type: "movie"
 // Year: "1987"
 // imdbID: "tt0093779"
+
+// ;<button
+//   style={buttonColor}
+//   onClick={() => props.addToWatchlist(props.poster, props.title, props.rating, props.runtime, props.genre, props.plot)}
+// >
+//   <i className="fa-solid fa-circle-plus"></i> Watchlist
+// </button>
