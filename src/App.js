@@ -18,6 +18,12 @@ function App() {
     setDarkMode((prevDarkMode) => !prevDarkMode)
   }
 
+  useEffect(() => {
+    if (darkMode) {
+      document.body.style.backgroundColor = 'var(--bg-dark)'
+    } else document.body.style.backgroundColor = 'var(--bg-light)'
+  }, [darkMode])
+
   function toggleWatchlist() {
     setShowWatchlist((prevState) => !prevState)
   }

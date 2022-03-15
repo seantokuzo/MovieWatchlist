@@ -10,11 +10,16 @@ export default function MovieCard(props) {
   }
 
   const addOrDeleteButton = props.watchlist ? (
-    <button style={buttonColor} onClick={() => props.removeFromWatchlist(props.poster)}>
-      <i className="fa-solid fa-circle-minus"></i> Remove from Watchlist
-    </button>
+    <div
+      className="btn"
+      style={buttonColor}
+      onClick={() => props.removeFromWatchlist(props.poster)}
+    >
+      <i className="fa-solid fa-circle-minus"></i> Remove
+    </div>
   ) : (
-    <button
+    <div
+      className="btn"
       style={buttonColor}
       onClick={() =>
         props.addToWatchlist(
@@ -28,11 +33,11 @@ export default function MovieCard(props) {
       }
     >
       <i className="fa-solid fa-circle-plus"></i> Watchlist
-    </button>
+    </div>
   )
 
   return (
-    <div className="movie-card-div">
+    <div className={props.watchlist ? 'movie-card-div fade-in' : 'movie-card-div flip'}>
       <img src={props.poster} alt="Movie Poster"></img>
       <div className="card-non-img-div">
         <div className="card-title-div">
