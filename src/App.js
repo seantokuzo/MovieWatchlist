@@ -5,13 +5,40 @@ import Watchlist from './components/Watchlist.js'
 
 function App() {
   const [darkMode, setDarkMode] = useState(true)
-  const [showWatchlist, setShowWatchlist] = useState(false)
+  const [showWatchlist, setShowWatchlist] = useState(true)
   const [myWatchlist, setMyWatchlist] = useState([])
   // console.log(showWatchlist)
+  console.log(myWatchlist)
 
   const bgStyle = {
     backgroundColor: darkMode ? 'var(--bg-dark)' : 'var(--bg-light)',
     color: darkMode ? 'var(--text-dm)' : 'var(--text-lm)',
+  }
+
+  function reorderUp(id) {
+    const currentMovie = myWatchlist.filter((movie) => movie.cardId === id)
+    const currentMovieIndex = myWatchlist.indexOf(...currentMovie)
+    if (currentMovieIndex === 0) return
+
+    setMyWatchlist((prevWatchlist) => [
+      ...prevWatchlist.slice(0, currentMovieIndex - 1),
+      ...currentMovie,
+      ...prevWatchlist.slice(currentMovieIndex - 1, currentMovieIndex),
+      ...prevWatchlist.slice(currentMovieIndex + 1),
+    ])
+  }
+
+  function reorderDown(id) {
+    const currentMovie = myWatchlist.filter((movie) => movie.cardId === id)
+    const currentMovieIndex = myWatchlist.indexOf(...currentMovie)
+    if (currentMovieIndex === myWatchlist.length - 1) return
+
+    setMyWatchlist((prevWatchlist) => [
+      ...prevWatchlist.slice(0, currentMovieIndex),
+      ...prevWatchlist.slice(currentMovieIndex + 1, currentMovieIndex + 2),
+      ...currentMovie,
+      ...prevWatchlist.slice(currentMovieIndex + 2),
+    ])
   }
 
   function toggleDarkMode() {
@@ -28,7 +55,7 @@ function App() {
     setShowWatchlist((prevState) => !prevState)
   }
 
-  function addToWatchlist(poster, title, rating, runtime, genre, plot) {
+  function addToWatchlist(poster, title, rating, runtime, genre, plot, cardId) {
     setMyWatchlist((prevWatchlist) => [
       ...prevWatchlist,
       {
@@ -38,12 +65,13 @@ function App() {
         runtime,
         genre,
         plot,
+        cardId,
       },
     ])
   }
 
+  // localStorage.clear()
   useEffect(() => {
-    // localStorage.clear()
     if (localStorage.getItem('myWatchlist')) {
       setMyWatchlist(JSON.parse(localStorage.getItem('myWatchlist')))
     } else return
@@ -68,8 +96,6 @@ function App() {
     })
   }
 
-  // console.log(myWatchlist)
-
   return (
     // <main style={bgStyle}>
     <main style={bgStyle}>
@@ -85,6 +111,8 @@ function App() {
           darkMode={darkMode}
           removeFromWatchlist={removeFromWatchlist}
           toggleWatchlist={toggleWatchlist}
+          reorderUp={reorderUp}
+          reorderDown={reorderDown}
         />
       ) : (
         <SearchPage

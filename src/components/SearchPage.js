@@ -49,6 +49,7 @@ export default function SearchPage(props) {
                 runtime: data.Runtime,
                 genre: data.Genre,
                 plot: data.Plot,
+                cardId: id,
               },
             ])
           })
@@ -69,6 +70,7 @@ export default function SearchPage(props) {
             runtime={movie.runtime}
             genre={movie.genre}
             plot={movie.plot}
+            cardId={movie.cardId}
             darkMode={props.darkMode}
             addToWatchlist={props.addToWatchlist}
           />

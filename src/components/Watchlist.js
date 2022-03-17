@@ -3,11 +3,13 @@ import MovieCard from './MovieCard'
 import { nanoid } from 'nanoid'
 
 export default function Watchlist(props) {
-  const movieCards = props.myWatchlist
-    ? props.myWatchlist.map((movie) => {
+  const movieCards =
+    props.myWatchlist.length > 0 ? (
+      props.myWatchlist.map((movie) => {
         return (
           <MovieCard
             key={nanoid()}
+            cardId={movie.cardId}
             poster={movie.poster}
             title={movie.title}
             rating={movie.rating}
@@ -17,20 +19,28 @@ export default function Watchlist(props) {
             darkMode={props.darkMode}
             watchlist={true}
             removeFromWatchlist={props.removeFromWatchlist}
+            reorderUp={props.reorderUp}
+            reorderDown={props.reorderDown}
           />
         )
       })
-    : null
-
-  const emptyWatchlist = (
-    <div className="empty-watchlist-div">
-      <h3>Your watchlist is looking a little empty...</h3>
-      <div className="empty-add-div" onClick={props.toggleWatchlist}>
-        <i className="fa-solid fa-circle-plus"></i>
-        <h5>Let's add some movies!</h5>
+    ) : (
+      <div className="empty-watchlist-div">
+        <h3>Your watchlist is looking a little empty...</h3>
+        <div className="empty-add-div" onClick={props.toggleWatchlist}>
+          <i className="fa-solid fa-circle-plus"></i>
+          <h5>Let's add some movies!</h5>
+        </div>
       </div>
-    </div>
-  )
+    )
 
-  return <div id="page-container">{props.myWatchlist.length > 0 ? movieCards : emptyWatchlist}</div>
+  // const emptyWatchlist = (
+
+  // )
+
+  return <div id="page-container">{movieCards}</div>
 }
+
+// {
+//   props.myWatchlist.length > 0 ? movieCards : emptyWatchlist
+// }

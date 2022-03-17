@@ -231,25 +231,36 @@ input[type='search']:focus {
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   margin: 0 auto;
   padding: 3rem 0;
 
+  /* border: 1px solid aqua; */
   border-bottom: 1px solid var(--plot-dm);
 
   /* animation: flip 500ms ease-in; */
 }
 
+@media (max-width: 900px) {
+  .movie-card-div {
+    width: 90%;
+  }
+}
+
 .movie-card-div > img {
   max-width: 200px;
-  /* min-width: 10vw; */
+  min-width: 10vw;
   width: 20vw;
   margin: 0 3vw;
 }
 
 .card-non-img-div {
+  width: 65%;
+
   display: flex;
   flex-direction: column;
+  /* border: 1px solid aqua; */
 }
 
 .card-title-div {
@@ -323,7 +334,7 @@ p:nth-child(2) {
 }
 
 .card-plot-div {
-  width: 90%;
+  /* width: 80%; */
   min-height: 50px;
   max-height: 100px;
 
@@ -340,14 +351,39 @@ p:nth-child(2) {
   /* border: 1px solid pink; */
 }
 
+.reorder-btn-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 0.5rem 0;
+  margin: 0 1rem 0 1rem;
+
+  /* border: 1px solid aqua; */
+}
+
+.reorder-btn {
+  background: none;
+  border: none;
+  font-size: 2em;
+
+  cursor: pointer;
+}
+
+.reorder-btn:active,
+.reorder-btn:focus {
+  color: rgb(124, 231, 124);
+}
+
 @media (max-width: 600px) {
   .movie-card-div {
-    width: 90vw;
+    /* width: 90vw; */
     padding: 2rem 0;
   }
 
   .movie-card-div > img {
-    max-width: 50px;
+    max-width: 80px;
+    margin: 0 0.5em 0 0;
   }
 
   .card-title-div > h2,
@@ -370,6 +406,14 @@ p:nth-child(2) {
 
   .card-plot-div {
     margin-top: 5px;
+  }
+
+  .reorder-btn-div {
+    margin: 0 0 0 0.35em;
+  }
+
+  .reoder-btn {
+    font-size: 2em;
   }
 }
 
@@ -456,12 +500,12 @@ p:nth-child(2) {
 /* ****************************** */
 
 .fade-in {
-  animation: fade-in 500ms;
+  animation: fade-in 250ms ease-in;
 }
 
-.flip {
+/* .flip {
   animation: flip 500ms ease-in;
-}
+} */
 
 @keyframes fade-in {
   0% {
@@ -472,7 +516,7 @@ p:nth-child(2) {
   }
 }
 
-@keyframes flip {
+/* @keyframes flip {
   0% {
     opacity: 0;
     transform: rotateY(90deg);
@@ -481,4 +525,4 @@ p:nth-child(2) {
     opacity: 1;
     transform: rotateY(0deg);
   }
-}
+} */
