@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/MovieWatchlist/static/css/main.a437b5a4.css",
-    "main.js": "/MovieWatchlist/static/js/main.a4ee8de1.js",
+    "main.js": "/MovieWatchlist/static/js/main.2de8a29d.js",
     "static/media/header-bg-img.jpg": "/MovieWatchlist/static/media/header-bg-img.ae5dd3ebfa01a5f3ed53.jpg",
     "index.html": "/MovieWatchlist/index.html",
     "main.a437b5a4.css.map": "/MovieWatchlist/static/css/main.a437b5a4.css.map",
-    "main.a4ee8de1.js.map": "/MovieWatchlist/static/js/main.a4ee8de1.js.map"
+    "main.2de8a29d.js.map": "/MovieWatchlist/static/js/main.2de8a29d.js.map"
   },
   "entrypoints": [
     "static/css/main.a437b5a4.css",
-    "static/js/main.a4ee8de1.js"
+    "static/js/main.2de8a29d.js"
   ]
 }
