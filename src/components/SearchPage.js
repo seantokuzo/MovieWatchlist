@@ -17,7 +17,7 @@ export default function SearchPage(props) {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        console.log(data.results)
         if (data.errors) {
           setNoResults(false)
           setMovieCards([])
@@ -44,39 +44,13 @@ export default function SearchPage(props) {
       .catch((err) => console.log(err))
   }
 
-  // useEffect(() => {
-  //   setFilteredResults([])
-  //   if (searchResults.length > 0) {
-  //     searchResults.map((id) => {
-  //       fetch(`http://www.omdbapi.com/?apikey=${skuzoKey}&i=${id}`)
-  //         .then((res) => res.json())
-  //         .then((data) => {
-  //           // console.log(data)
-  //           setFilteredResults((prevFilteredResults) => [
-  //             ...prevFilteredResults,
-  //             {
-  //               poster: data.Poster,
-  //               title: data.Title,
-  //               rating: data.imdbRating,
-  //               runtime: data.Runtime,
-  //               genre: data.Genre,
-  //               plot: data.Plot,
-  //               cardId: id,
-  //             },
-  //           ])
-  //         })
-  //       return null
-  //     })
-  //   } else return
-  // }, [searchResults])
-
   useEffect(() => {
     setMovieCards(
       searchResults
         .slice()
-        .sort((a, b) => {
-          return b.popularity - a.popularity
-        })
+        // .sort((a, b) => {
+        //   return b.popularity - a.popularity
+        // })
         .map((movie) => {
           return (
             <MovieCard

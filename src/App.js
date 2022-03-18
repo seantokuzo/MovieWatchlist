@@ -126,7 +126,10 @@ function App() {
   const footer = (
     <footer style={bgStyle}>
       <div>
-        <img src="./img/thecrackerjaps-anim.png" alt="logo"></img>
+        <img
+          src={require('./img/thecrackerjaps-anim.png')}
+          alt="logo"
+        />
         <h6>A CrackerJap App</h6>
       </div>
       <div>
@@ -134,7 +137,7 @@ function App() {
         <img
           src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_1-5bdc75aaebeb75dc7ae79426ddd9be3b2be1e342510f8202baf6bffa71d7f5c4.svg"
           alt="The movie database api logo"
-        ></img>
+        />
       </div>
     </footer>
   )

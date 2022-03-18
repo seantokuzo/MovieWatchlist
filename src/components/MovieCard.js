@@ -68,7 +68,7 @@ export default function MovieCard(props) {
         <div className="card-title-div">
           <h2>{props.title ? props.title : 'Title not available'}</h2>
           <i className="fa-solid fa-star"></i>
-          <p>{props.rating}</p>
+          <p>{props.rating === 0 ? 'N/A' : props.rating}</p>
         </div>
         <div className="card-details-div">
           <p>{props.date}</p>
