@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/MovieWatchlist/static/css/main.3aea0e3c.css",
-    "main.js": "/MovieWatchlist/static/js/main.4d8e458f.js",
+    "main.css": "/MovieWatchlist/static/css/main.11e106d9.css",
+    "main.js": "/MovieWatchlist/static/js/main.8cb38920.js",
     "static/media/header-bg-img.jpg": "/MovieWatchlist/static/media/header-bg-img.ae5dd3ebfa01a5f3ed53.jpg",
     "static/media/thecrackerjaps-anim.png": "/MovieWatchlist/static/media/thecrackerjaps-anim.36ccb934bf9272c9d8f5.png",
     "index.html": "/MovieWatchlist/index.html",
-    "main.3aea0e3c.css.map": "/MovieWatchlist/static/css/main.3aea0e3c.css.map",
-    "main.4d8e458f.js.map": "/MovieWatchlist/static/js/main.4d8e458f.js.map"
+    "main.11e106d9.css.map": "/MovieWatchlist/static/css/main.11e106d9.css.map",
+    "main.8cb38920.js.map": "/MovieWatchlist/static/js/main.8cb38920.js.map"
   },
   "entrypoints": [
-    "static/css/main.3aea0e3c.css",
-    "static/js/main.4d8e458f.js"
+    "static/css/main.11e106d9.css",
+    "static/js/main.8cb38920.js"
   ]
 }
