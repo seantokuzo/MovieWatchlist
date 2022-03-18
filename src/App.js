@@ -49,7 +49,7 @@ function App() {
       setAlert(true)
       setTimeout(() => {
         setAlert(false)
-      }, 1000)
+      }, 1900)
       return
     }
     setMyWatchlist((prevWatchlist) => [
@@ -111,7 +111,16 @@ function App() {
     </div>
   )
 
-  const duplicateMovieAlert = <h5 className="popup fade-out">Move already on watchlist!</h5>
+  // ***** DUPLICATE MOVIE ALERT STYLE *****
+  const popupStyle = {
+    backgroundColor: darkMode ? 'var(--plot-lm)' : 'var(--plot-dm)',
+  }
+  // ***** DUPLICATE MOVIE ALERT *****
+  const duplicateMovieAlert = (
+    <h5 className="popup fade-out" style={popupStyle}>
+      Move already on watchlist!
+    </h5>
+  )
 
   return (
     // <main style={bgStyle}>
