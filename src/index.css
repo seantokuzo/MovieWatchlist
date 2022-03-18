@@ -332,20 +332,28 @@ p:nth-child(2) {
 .card-plot-div {
   /* width: 80%; */
   min-height: 50px;
-  max-height: 100px;
+  max-height: 128px;
 
   margin-top: 1em;
 
-  /* border: 1px solid pink; */
   overflow: hidden;
 }
 
 .card-plot-div > p {
   margin: 0;
   font-size: 0.95em;
-
-  /* border: 1px solid pink; */
 }
+
+.btn-read-more {
+  cursor: pointer;
+  border-bottom: 0.5px solid;
+}
+
+/* .read-more-div {
+}
+
+.read-more-div > span {
+} */
 
 .reorder-btn-div {
   display: flex;
@@ -406,7 +414,7 @@ p:nth-child(2) {
 
   .card-plot-div {
     margin-top: 5px;
-    max-height: 80px;
+    max-height: 75px;
   }
 
   .reorder-btn-div {
@@ -531,9 +539,10 @@ footer > div {
   align-items: center;
 }
 
-footer h6,
-p {
+footer h6 {
   margin: 0;
+  font-size: 0.75em;
+  font-weight: 500;
 }
 
 footer div img {

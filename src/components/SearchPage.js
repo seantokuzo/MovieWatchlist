@@ -13,7 +13,7 @@ export default function SearchPage(props) {
 
   function handleSearch(e) {
     fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${tmdbKey}&language=en-US&query=${e.target.value}&page=1&include_adult=true`
+      `https://api.themoviedb.org/3/search/movie?api_key=${tmdbKey}&language=en-US&query=${e.target.value}&page=1`
     )
       .then((res) => res.json())
       .then((data) => {

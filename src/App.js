@@ -106,6 +106,10 @@ function App() {
     backgroundColor: darkMode ? 'var(--plot-lm)' : 'var(--plot-dm)',
   }
 
+  const footieStyle = {
+    color: darkMode ? 'var(--plot-dm)' : 'var(--plot-lm)',
+  }
+
   // ***** DARKMODE TOGGLER ELEMENT *****
   const togglerEl = (
     <div className="toggler-div">
@@ -126,14 +130,11 @@ function App() {
   const footer = (
     <footer style={bgStyle}>
       <div>
-        <img
-          src={require('./img/thecrackerjaps-anim.png')}
-          alt="logo"
-        />
-        <h6>A CrackerJap App</h6>
+        <img src={require('./img/thecrackerjaps-anim.png')} alt="logo" />
+        <h6 style={footieStyle}>A CrackerJap App</h6>
       </div>
       <div>
-        <p>Powered by</p>
+        <h6 style={footieStyle}>Powered by</h6>
         <img
           src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_1-5bdc75aaebeb75dc7ae79426ddd9be3b2be1e342510f8202baf6bffa71d7f5c4.svg"
           alt="The movie database api logo"
