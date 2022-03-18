@@ -17,7 +17,6 @@ export default function SearchPage(props) {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.results)
         if (data.errors) {
           setNoResults(false)
           setMovieCards([])
@@ -89,7 +88,9 @@ export default function SearchPage(props) {
 
   const cantFind = (
     <div className="start-exploring-div" style={changingColor}>
-      <h3>Unable to fund what you're looking for. Please try another search.</h3>
+      <h3>
+        Unable to fund what you're looking for. Please try another search.
+      </h3>
     </div>
   )
 

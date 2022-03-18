@@ -5,8 +5,9 @@ import Watchlist from './components/Watchlist.js'
 
 function App() {
   const [alert, setAlert] = useState(false)
+  const [addedAlert, setAddedAlert] = useState(false)
   const [darkMode, setDarkMode] = useState(true)
-  const [showWatchlist, setShowWatchlist] = useState(false)
+  const [showWatchlist, setShowWatchlist] = useState(true)
   const [myWatchlist, setMyWatchlist] = useState([])
 
   // ***** CHANGE BODY COLOR ON DARKMODE CHANGE *****
@@ -58,6 +59,10 @@ function App() {
         cardId,
       },
     ])
+    setAddedAlert(true)
+    setTimeout(() => {
+      setAddedAlert(false)
+    }, 1900)
   }
 
   // ***** REMOVE MOVIE FROM WATCHLIST HANDLER *****
@@ -120,6 +125,13 @@ function App() {
     </div>
   )
 
+  // ***** MOVIE ADDED ALERT *****
+  const movieAddedAlert = (
+    <h5 className="popup fade-out" style={popupStyle}>
+      Movie added to watchlist
+    </h5>
+  )
+
   // ***** DUPLICATE MOVIE ALERT *****
   const duplicateMovieAlert = (
     <h5 className="popup fade-out" style={popupStyle}>
@@ -168,6 +180,7 @@ function App() {
         />
       )}
       {alert && duplicateMovieAlert}
+      {addedAlert && movieAddedAlert}
       {footer}
     </div>
   )

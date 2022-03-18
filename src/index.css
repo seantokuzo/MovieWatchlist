@@ -290,6 +290,8 @@ input[type='text']:focus {
 .card-details-div {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+
   font-weight: 400;
   font-size: 0.85em;
   line-height: 20px;
@@ -300,13 +302,22 @@ input[type='text']:focus {
 
 .card-details-div > * {
   margin: 0;
-  margin-right: 20px;
+  /* margin-right: 20px; */
 }
 
 .card-details-div p:first-child,
 p:nth-child(2) {
-  margin: 0 1rem 0 0;
+  margin: 0;
   line-height: 1.15em;
+}
+
+.card-details-div p:nth-child(2) {
+  margin-left: 10px;
+}
+
+.card-details {
+  display: flex;
+  align-items: center;
 }
 
 .card-details-div > .btn {
@@ -344,24 +355,13 @@ p:nth-child(2) {
   font-size: 0.95em;
 }
 
-.btn-read-more {
-  cursor: pointer;
-  border-bottom: 0.5px solid;
-}
-
-/* .read-more-div {
-}
-
-.read-more-div > span {
-} */
-
 .reorder-btn-div {
   display: flex;
   flex-direction: column;
   align-items: center;
 
   padding: 0.5rem 0;
-  margin: 0 1rem 0 1rem;
+  margin: 0 .5rem 0 1rem;
 
   /* border: 1px solid aqua; */
 }
@@ -381,7 +381,7 @@ p:nth-child(2) {
 
 @media (max-width: 600px) {
   .movie-card-div {
-    /* width: 90vw; */
+    width: 90%;
     padding: 2rem 0;
   }
 
@@ -412,13 +412,17 @@ p:nth-child(2) {
     margin: 0 0.5rem 0 0;
   }
 
+  .card-details-div p:nth-child(2) {
+  margin-left: 3px;
+}
+
   .card-plot-div {
     margin-top: 5px;
     max-height: 75px;
   }
 
   .reorder-btn-div {
-    margin: 0 0 0 0.35em;
+    margin: 0;
   }
 
   .reoder-btn {

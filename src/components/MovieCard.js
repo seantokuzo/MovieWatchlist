@@ -74,8 +74,10 @@ export default function MovieCard(props) {
           <p>{props.rating === 0 ? 'N/A' : props.rating}</p>
         </div>
         <div className="card-details-div">
-          <p>{props.date}</p>
-          <p>{translateGenres.join(', ')}</p>
+          <div className='card-details'>
+            <p>{props.date}</p>
+            <p>{translateGenres.join(', ')}</p>
+          </div>
           {addOrDeleteButton}
         </div>
         <div className="card-plot-div">
