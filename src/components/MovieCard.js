@@ -38,7 +38,7 @@ export default function MovieCard(props) {
   )
 
   const reorderBtnStyle = {
-    color: props.darkMode ? '#fff' : '#000',
+    color: props.darkMode ? '#fff' : 'var(--plot-lm)',
   }
 
   const reorderButtons = (

@@ -5,10 +5,8 @@ import Watchlist from './components/Watchlist.js'
 
 function App() {
   const [darkMode, setDarkMode] = useState(true)
-  const [showWatchlist, setShowWatchlist] = useState(true)
+  const [showWatchlist, setShowWatchlist] = useState(false)
   const [myWatchlist, setMyWatchlist] = useState([])
-  // console.log(showWatchlist)
-  console.log(myWatchlist)
 
   const bgStyle = {
     backgroundColor: darkMode ? 'var(--bg-dark)' : 'var(--bg-light)',

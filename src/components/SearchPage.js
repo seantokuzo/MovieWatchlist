@@ -60,22 +60,27 @@ export default function SearchPage(props) {
 
   useEffect(() => {
     setMovieCards(
-      filteredResults.map((movie) => {
-        return (
-          <MovieCard
-            key={nanoid()}
-            poster={movie.poster}
-            title={movie.title}
-            rating={movie.rating}
-            runtime={movie.runtime}
-            genre={movie.genre}
-            plot={movie.plot}
-            cardId={movie.cardId}
-            darkMode={props.darkMode}
-            addToWatchlist={props.addToWatchlist}
-          />
-        )
-      })
+      filteredResults
+        .slice()
+        .sort((a, b) => {
+          return b.rating - a.rating
+        })
+        .map((movie) => {
+          return (
+            <MovieCard
+              key={nanoid()}
+              poster={movie.poster}
+              title={movie.title}
+              rating={movie.rating}
+              runtime={movie.runtime}
+              genre={movie.genre}
+              plot={movie.plot}
+              cardId={movie.cardId}
+              darkMode={props.darkMode}
+              addToWatchlist={props.addToWatchlist}
+            />
+          )
+        })
     )
   }, [filteredResults, props.addToWatchlist, props.darkMode])
 
@@ -112,7 +117,7 @@ export default function SearchPage(props) {
     <div className="page-container">
       <input
         onChange={handleSearch}
-        type="search"
+        type="text"
         placeholder="Search for a movie"
         results="0"
         maxLength={80}
