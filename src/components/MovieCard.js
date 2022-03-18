@@ -2,6 +2,10 @@ import React from 'react'
 import genreIds from '../data/genre-data.js'
 
 export default function MovieCard(props) {
+  // ***** TRANSLATE THE GENRES FROM GENRE-DATA *****
+  const translateGenres = props.genre.map((id) => genreIds[id])
+
+  // ***** DYNAMIC STYLES *****
   const plotStyle = {
     color: props.darkMode ? 'var(--plot-dm)' : 'var(--plot-lm)',
   }
@@ -10,7 +14,12 @@ export default function MovieCard(props) {
     color: props.darkMode ? '#fff' : '#000',
   }
 
-  const addOrDeleteButton = props.watchlist ? (
+  const reorderBtnStyle = {
+    color: props.darkMode ? '#fff' : 'var(--plot-lm)',
+  }
+
+  // ***** ADD BUTTON IF CARD ON SEARCH PAGE / REMOVE BUTTON IF WATCHLIST *****
+  const addOrRemoveButtton = props.watchlist ? (
     <div
       className="btn"
       style={buttonColor}
@@ -30,8 +39,7 @@ export default function MovieCard(props) {
           props.date,
           props.genre,
           props.plot,
-          props.cardId,
-          props.popularity
+          props.cardId
         )
       }
     >
@@ -39,10 +47,7 @@ export default function MovieCard(props) {
     </div>
   )
 
-  const reorderBtnStyle = {
-    color: props.darkMode ? '#fff' : 'var(--plot-lm)',
-  }
-
+  // ***** REORDER BUTTONS IF CARD ON WATCHLIST *****
   const reorderButtons = (
     <div className="reorder-btn-div">
       <button
@@ -62,8 +67,6 @@ export default function MovieCard(props) {
     </div>
   )
 
-  const translateGenres = props.genre.map((id) => genreIds[id])
-
   return (
     <div className={'movie-card-div fade-in'}>
       <img src={props.poster} alt="Movie Poster"></img>
@@ -74,11 +77,11 @@ export default function MovieCard(props) {
           <p>{props.rating === 0 ? 'N/A' : props.rating}</p>
         </div>
         <div className="card-details-div">
-          <div className='card-details'>
+          <div className="card-details">
             <p>{props.date}</p>
             <p>{translateGenres.join(', ')}</p>
           </div>
-          {addOrDeleteButton}
+          {addOrRemoveButtton}
         </div>
         <div className="card-plot-div">
           <p style={plotStyle}>{props.plot}</p>

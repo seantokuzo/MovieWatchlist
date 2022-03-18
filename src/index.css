@@ -327,7 +327,7 @@ p:nth-child(2) {
   font-family: 'Inter', sans-serif;
   font-size: 1em;
 
-  margin-right: 0.5rem;
+  margin-right: 1.5rem;
 
   display: flex;
   align-items: center;
@@ -361,7 +361,7 @@ p:nth-child(2) {
   align-items: center;
 
   padding: 0.5rem 0;
-  margin: 0 .5rem 0 1rem;
+  margin: 0 0.5rem 0 1rem;
 
   /* border: 1px solid aqua; */
 }
@@ -387,11 +387,11 @@ p:nth-child(2) {
 
   .movie-card-div > img {
     max-width: 100px;
-    margin: 0 0.5em 0 0;
+    margin: 0 1.5em 0 0;
   }
 
   .card-non-img-div {
-    padding: 0 1rem 0 0.5rem;
+    padding: 0 .5rem 0 0;
   }
 
   .card-title-div > h2,
@@ -407,14 +407,18 @@ p:nth-child(2) {
     margin-right: 5px;
   }
 
+  .card-details-div > .btn {
+    margin-right: 0.5rem;
+  }
+
   .card-details-div p:first-child,
   p:nth-child(2) {
     margin: 0 0.5rem 0 0;
   }
 
   .card-details-div p:nth-child(2) {
-  margin-left: 3px;
-}
+    margin-left: 3px;
+  }
 
   .card-plot-div {
     margin-top: 5px;

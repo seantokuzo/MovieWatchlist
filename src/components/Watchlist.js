@@ -3,7 +3,9 @@ import MovieCard from './MovieCard'
 import { nanoid } from 'nanoid'
 
 export default function Watchlist(props) {
+  // ***** MOVIE CARDS MAPPED FROM MYWATCHLIST PROP *****
   const movieCards =
+    //CHECK IF THERE ARE MOVIES IN MY WATCHLIST
     props.myWatchlist.length > 0 ? (
       props.myWatchlist.map((movie) => {
         return (
@@ -25,6 +27,7 @@ export default function Watchlist(props) {
         )
       })
     ) : (
+      // IF NO MOVIES IN WATCHLIST RENDER THIS ELEMENT
       <div className="empty-watchlist-div">
         <h3>Your watchlist is looking a little empty...</h3>
         <div className="empty-add-div" onClick={props.toggleWatchlist}>
@@ -34,13 +37,5 @@ export default function Watchlist(props) {
       </div>
     )
 
-  // const emptyWatchlist = (
-
-  // )
-
   return <div id="page-container">{movieCards}</div>
 }
-
-// {
-//   props.myWatchlist.length > 0 ? movieCards : emptyWatchlist
-// }

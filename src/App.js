@@ -7,8 +7,14 @@ function App() {
   const [alert, setAlert] = useState(false)
   const [addedAlert, setAddedAlert] = useState(false)
   const [darkMode, setDarkMode] = useState(true)
-  const [showWatchlist, setShowWatchlist] = useState(true)
+  const [showWatchlist, setShowWatchlist] = useState(false)
   const [myWatchlist, setMyWatchlist] = useState([])
+
+  useEffect(() => {
+    if (myWatchlist.length > 0) {
+      setShowWatchlist(true)
+    }
+  }, [])
 
   // ***** CHANGE BODY COLOR ON DARKMODE CHANGE *****
   useEffect(() => {
@@ -33,10 +39,27 @@ function App() {
       setMyWatchlist(JSON.parse(localStorage.getItem('myWatchlist')))
     } else return
   }, [])
-  // ***** UPDATE WATCHLIST IN LOCAL STORAGE ANYTIME IT CHANGES *****
+
+  // ***** GET DARKMODE FROM LOCAL STORAGE *****
+  useEffect(() => {
+    if (localStorage.getItem('darkMode')) {
+      setDarkMode(JSON.parse(localStorage.getItem('darkMode')))
+    } else return
+  }, [])
+
+  // ***** GET SHOWWATCHLIST FROM LOCAL STORAGE *****
+  useEffect(() => {
+    if (localStorage.getItem('showWatchlist')) {
+      setShowWatchlist(JSON.parse(localStorage.getItem('showWatchlist')))
+    } else return
+  }, [])
+
+  // ***** UPDATE WATCHLIST/DARKMODE/SHOWWATCHLIST IN LOCAL STORAGE ANYTIME IT CHANGES *****
   useEffect(() => {
     localStorage.setItem('myWatchlist', JSON.stringify(myWatchlist))
-  }, [myWatchlist])
+    localStorage.setItem('darkMode', JSON.stringify(darkMode))
+    localStorage.setItem('showWatchlist', JSON.stringify(showWatchlist))
+  }, [myWatchlist, darkMode, showWatchlist])
 
   // ***** ADD MOVIE TO WATCHLIST HANDLER *****
   function addToWatchlist(poster, title, rating, date, genre, plot, cardId) {
@@ -126,20 +149,21 @@ function App() {
   )
 
   // ***** MOVIE ADDED ALERT *****
-  const movieAddedAlert = (
+  const movieAddedAlertEl = (
     <h5 className="popup fade-out" style={popupStyle}>
       Movie added to watchlist
     </h5>
   )
 
   // ***** DUPLICATE MOVIE ALERT *****
-  const duplicateMovieAlert = (
+  const duplicateMovieAlertEl = (
     <h5 className="popup fade-out" style={popupStyle}>
       Move already on watchlist!
     </h5>
   )
 
-  const footer = (
+  // ***** FOOTER ELEMENT *****
+  const footerEl = (
     <footer style={bgStyle}>
       <div>
         <img src={require('./img/thecrackerjaps-anim.png')} alt="logo" />
@@ -179,9 +203,9 @@ function App() {
           showWatchlist={showWatchlist}
         />
       )}
-      {alert && duplicateMovieAlert}
-      {addedAlert && movieAddedAlert}
-      {footer}
+      {alert && duplicateMovieAlertEl}
+      {addedAlert && movieAddedAlertEl}
+      {footerEl}
     </div>
   )
 }
