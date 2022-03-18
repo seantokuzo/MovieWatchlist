@@ -4,15 +4,15 @@ import MovieCard from './MovieCard.js'
 
 export default function SearchPage(props) {
   //   const seantokuzoKey = '1b0b3909'
-  // const skuzoKey = '6bca848f'
-  const cjKey = 'e7bfdf8f'
+  const skuzoKey = '6bca848f'
+  // const cjKey = 'e7bfdf8f'
   const [noResults, setNoResults] = useState(false)
   const [searchResults, setSearchResults] = useState([])
   const [filteredResults, setFilteredResults] = useState([])
   const [movieCards, setMovieCards] = useState([])
 
   function handleSearch(e) {
-    fetch(`http://www.omdbapi.com/?apikey=${cjKey}&s=${e.target.value}&page=1`)
+    fetch(`http://www.omdbapi.com/?apikey=${skuzoKey}&s=${e.target.value}&page=1`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data)
@@ -36,7 +36,7 @@ export default function SearchPage(props) {
     setFilteredResults([])
     if (searchResults.length > 0) {
       searchResults.map((id) => {
-        fetch(`http://www.omdbapi.com/?apikey=${cjKey}&i=${id}`)
+        fetch(`http://www.omdbapi.com/?apikey=${skuzoKey}&i=${id}`)
           .then((res) => res.json())
           .then((data) => {
             // console.log(data)
