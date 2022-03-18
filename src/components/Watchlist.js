@@ -13,7 +13,7 @@ export default function Watchlist(props) {
             poster={movie.poster}
             title={movie.title}
             rating={movie.rating}
-            runtime={movie.runtime}
+            date={movie.date}
             genre={movie.genre}
             plot={movie.plot}
             darkMode={props.darkMode}

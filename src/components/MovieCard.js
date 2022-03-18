@@ -26,10 +26,11 @@ export default function MovieCard(props) {
           props.poster,
           props.title,
           props.rating,
-          props.runtime,
+          props.date,
           props.genre,
           props.plot,
-          props.cardId
+          props.cardId,
+          props.popularity
         )
       }
     >
@@ -70,7 +71,7 @@ export default function MovieCard(props) {
           <p>{props.rating}</p>
         </div>
         <div className="card-details-div">
-          <p>{props.runtime}</p>
+          <p>{props.date}</p>
           <p>{props.genre}</p>
           {addOrDeleteButton}
         </div>

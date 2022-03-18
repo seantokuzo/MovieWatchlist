@@ -4,85 +4,99 @@ import MovieCard from './MovieCard.js'
 
 export default function SearchPage(props) {
   //   const seantokuzoKey = '1b0b3909'
-  const skuzoKey = '6bca848f'
+  // const skuzoKey = '6bca848f'
   // const cjKey = 'e7bfdf8f'
+  const tmdbKey = '3259933c93801a8673fb6333e45681c4'
   const [noResults, setNoResults] = useState(false)
   const [searchResults, setSearchResults] = useState([])
-  const [filteredResults, setFilteredResults] = useState([])
   const [movieCards, setMovieCards] = useState([])
 
   function handleSearch(e) {
-    fetch(`http://www.omdbapi.com/?apikey=${skuzoKey}&s=${e.target.value}&page=1`)
+    fetch(
+      `https://api.themoviedb.org/3/search/movie?api_key=${tmdbKey}&language=en-US&query=${e.target.value}&page=1&include_adult=true`
+    )
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data)
-        if (data.Error === 'Incorrect IMDb ID.') {
+        console.log(data)
+        if (data.errors) {
           setNoResults(false)
           setMovieCards([])
-        } else if (data.Response === 'False') {
+        } else if (data.total_results === 0) {
           setNoResults(true)
           setSearchResults([])
-          setFilteredResults([])
           setMovieCards([])
-        } else if (data.Search) {
-          setSearchResults(data.Search.map((results) => results.imdbID))
+        } else if (data.results.length > 0) {
+          setSearchResults(
+            data.results.map((movie) => ({
+              id: movie.id,
+              poster: `https://image.tmdb.org/t/p/w500/${movie.poster_path}`,
+              title: movie.title,
+              rating: movie.vote_average,
+              date: movie.release_date ? movie.release_date.slice(0, 4) : 'N/A',
+              genre: movie.genre_ids,
+              plot: movie.overview,
+              popularity: movie.popularity,
+            }))
+          )
           setNoResults(false)
         }
       })
       .catch((err) => console.log(err))
   }
 
-  useEffect(() => {
-    setFilteredResults([])
-    if (searchResults.length > 0) {
-      searchResults.map((id) => {
-        fetch(`http://www.omdbapi.com/?apikey=${skuzoKey}&i=${id}`)
-          .then((res) => res.json())
-          .then((data) => {
-            // console.log(data)
-            setFilteredResults((prevFilteredResults) => [
-              ...prevFilteredResults,
-              {
-                poster: data.Poster,
-                title: data.Title,
-                rating: data.imdbRating,
-                runtime: data.Runtime,
-                genre: data.Genre,
-                plot: data.Plot,
-                cardId: id,
-              },
-            ])
-          })
-        return null
-      })
-    } else return
-  }, [searchResults])
+  // useEffect(() => {
+  //   setFilteredResults([])
+  //   if (searchResults.length > 0) {
+  //     searchResults.map((id) => {
+  //       fetch(`http://www.omdbapi.com/?apikey=${skuzoKey}&i=${id}`)
+  //         .then((res) => res.json())
+  //         .then((data) => {
+  //           // console.log(data)
+  //           setFilteredResults((prevFilteredResults) => [
+  //             ...prevFilteredResults,
+  //             {
+  //               poster: data.Poster,
+  //               title: data.Title,
+  //               rating: data.imdbRating,
+  //               runtime: data.Runtime,
+  //               genre: data.Genre,
+  //               plot: data.Plot,
+  //               cardId: id,
+  //             },
+  //           ])
+  //         })
+  //       return null
+  //     })
+  //   } else return
+  // }, [searchResults])
 
   useEffect(() => {
     setMovieCards(
-      filteredResults
+      searchResults
         .slice()
         .sort((a, b) => {
-          return b.rating - a.rating
+          return b.popularity - a.popularity
         })
         .map((movie) => {
           return (
             <MovieCard
               key={nanoid()}
-              poster={movie.poster}
+              cardId={movie.id}
+              poster={`${movie.poster}`}
               title={movie.title}
               rating={movie.rating}
-              runtime={movie.runtime}
+              date={movie.date}
+              popularity={movie.popularity}
+              // runtime={movie.runtime}
               genre={movie.genre}
               plot={movie.plot}
-              cardId={movie.cardId}
               darkMode={props.darkMode}
               addToWatchlist={props.addToWatchlist}
             />
           )
         })
     )
-  }, [filteredResults, props.addToWatchlist, props.darkMode])
+  }, [searchResults, props.addToWatchlist, props.darkMode])
 
   const searchFieldStyle = {
     border: props.darkMode ? 'none' : '1px solid var(--plot-lm)',

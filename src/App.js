@@ -9,12 +9,6 @@ function App() {
   const [showWatchlist, setShowWatchlist] = useState(false)
   const [myWatchlist, setMyWatchlist] = useState([])
 
-  // ***** BACKGROUND COLOR - CONDITIONAL ON DARKMODE *****
-  const bgStyle = {
-    backgroundColor: darkMode ? 'var(--bg-dark)' : 'var(--bg-light)',
-    color: darkMode ? 'var(--text-dm)' : 'var(--text-lm)',
-  }
-
   // ***** CHANGE BODY COLOR ON DARKMODE CHANGE *****
   useEffect(() => {
     if (darkMode) {
@@ -44,7 +38,7 @@ function App() {
   }, [myWatchlist])
 
   // ***** ADD MOVIE TO WATCHLIST HANDLER *****
-  function addToWatchlist(poster, title, rating, runtime, genre, plot, cardId) {
+  function addToWatchlist(poster, title, rating, date, genre, plot, cardId) {
     if (!myWatchlist.every((movie) => movie.cardId !== cardId)) {
       setAlert(true)
       setTimeout(() => {
@@ -58,7 +52,7 @@ function App() {
         poster,
         title,
         rating,
-        runtime,
+        date,
         genre,
         plot,
         cardId,
@@ -101,6 +95,17 @@ function App() {
     ])
   }
 
+  // ***** BACKGROUND COLOR - CONDITIONAL ON DARKMODE *****
+  const bgStyle = {
+    backgroundColor: darkMode ? 'var(--bg-dark)' : 'var(--bg-light)',
+    color: darkMode ? 'var(--text-dm)' : 'var(--text-lm)',
+  }
+
+  // ***** DUPLICATE MOVIE ALERT STYLE *****
+  const popupStyle = {
+    backgroundColor: darkMode ? 'var(--plot-lm)' : 'var(--plot-dm)',
+  }
+
   // ***** DARKMODE TOGGLER ELEMENT *****
   const togglerEl = (
     <div className="toggler-div">
@@ -111,10 +116,6 @@ function App() {
     </div>
   )
 
-  // ***** DUPLICATE MOVIE ALERT STYLE *****
-  const popupStyle = {
-    backgroundColor: darkMode ? 'var(--plot-lm)' : 'var(--plot-dm)',
-  }
   // ***** DUPLICATE MOVIE ALERT *****
   const duplicateMovieAlert = (
     <h5 className="popup fade-out" style={popupStyle}>
@@ -122,9 +123,24 @@ function App() {
     </h5>
   )
 
+  const footer = (
+    <footer style={bgStyle}>
+      <div>
+        <img src="./img/thecrackerjaps-anim.png" alt="logo"></img>
+        <h6>A CrackerJap App</h6>
+      </div>
+      <div>
+        <p>Powered by</p>
+        <img
+          src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_1-5bdc75aaebeb75dc7ae79426ddd9be3b2be1e342510f8202baf6bffa71d7f5c4.svg"
+          alt="The movie database api logo"
+        ></img>
+      </div>
+    </footer>
+  )
+
   return (
-    // <main style={bgStyle}>
-    <main style={bgStyle}>
+    <div style={bgStyle}>
       {togglerEl}
       <Header
         showWatchlist={showWatchlist}
@@ -148,7 +164,8 @@ function App() {
         />
       )}
       {alert && duplicateMovieAlert}
-    </main>
+      {footer}
+    </div>
   )
 }
 
