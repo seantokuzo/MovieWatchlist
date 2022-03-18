@@ -57,12 +57,25 @@ header {
   position: absolute;
   z-index: 10;
   top: 5%;
-  left: 100%;
-  transform: translate(-10%, -50%);
+  right: 1%;
+  transform: translate(-50%, -50%);
 
-  width: 100%;
+  /* width: 100%; */
   margin-top: 0;
   margin-bottom: 0.5rem;
+}
+
+@media (max-width: 700px) {
+  .toggler-div {
+    transform: scale(0.9);
+    top: 2%;
+  }
+}
+
+@media (max-width: 500px) {
+  .toggler-div {
+    transform: scale(0.8);
+  }
 }
 
 /* The switch - the box around the slider */
@@ -131,22 +144,6 @@ input:checked + .slider:before {
 
 input:checked + .slider.round:before {
   background-color: var(--bg-dark);
-}
-
-@media (max-width: 700px) {
-  .toggler-div {
-    transform: scale(0.9);
-    top: 2%;
-    left: 82%;
-  }
-}
-
-@media (max-width: 500px) {
-  .toggler-div {
-    transform: scale(0.8);
-    top: 2%;
-    left: 73%;
-  }
 }
 
 /* ******************************** */

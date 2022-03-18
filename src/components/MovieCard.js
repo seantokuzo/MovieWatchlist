@@ -1,4 +1,5 @@
 import React from 'react'
+import genreIds from '../data/genre-data.js'
 
 export default function MovieCard(props) {
   const plotStyle = {
@@ -61,6 +62,8 @@ export default function MovieCard(props) {
     </div>
   )
 
+  const translateGenres = props.genre.map((id) => genreIds[id])
+
   return (
     <div className={'movie-card-div fade-in'}>
       <img src={props.poster} alt="Movie Poster"></img>
@@ -72,7 +75,7 @@ export default function MovieCard(props) {
         </div>
         <div className="card-details-div">
           <p>{props.date}</p>
-          <p>{props.genre}</p>
+          <p>{translateGenres.join(', ')}</p>
           {addOrDeleteButton}
         </div>
         <div className="card-plot-div">
