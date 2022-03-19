@@ -224,7 +224,7 @@ input[type='text']:focus {
 
 .movie-card-div {
   max-height: 50vh;
-  max-width: 1500px;
+  max-width: 1000px;
   width: 70%;
 
   display: flex;
@@ -312,7 +312,7 @@ p:nth-child(2) {
 }
 
 .card-details-div p:nth-child(2) {
-  margin-left: 10px;
+  margin-left: 1.5rem;
 }
 
 .card-details {
@@ -327,7 +327,7 @@ p:nth-child(2) {
   font-family: 'Inter', sans-serif;
   font-size: 1em;
 
-  margin-right: 1.5rem;
+  margin-right: 2.5rem;
 
   display: flex;
   align-items: center;
@@ -377,6 +377,16 @@ p:nth-child(2) {
 .reorder-btn:active,
 .reorder-btn:focus {
   color: rgb(124, 231, 124);
+}
+
+@media (max-width: 900px) {
+  .card-details-div p:nth-child(2) {
+    margin-left: .75rem;
+  }
+
+  .card-details-div > .btn {
+    margin-right: 1.5rem;
+  }
 }
 
 @media (max-width: 600px) {
