@@ -4,17 +4,20 @@ import SearchPage from './components/SearchPage.js'
 import Watchlist from './components/Watchlist.js'
 
 function App() {
+  const tmdbKey = '3259933c93801a8673fb6333e45681c4'
   const [alert, setAlert] = useState(false)
   const [addedAlert, setAddedAlert] = useState(false)
   const [darkMode, setDarkMode] = useState(true)
   const [showWatchlist, setShowWatchlist] = useState(false)
   const [myWatchlist, setMyWatchlist] = useState([])
+  const [noResults, setNoResults] = useState(false)
+  const [searchResults, setSearchResults] = useState([])
 
-  useEffect(() => {
-    if (myWatchlist.length > 0) {
-      setShowWatchlist(true)
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (myWatchlist.length > 0) {
+  //     setShowWatchlist(true)
+  //   }
+  // }, [])
 
   // ***** CHANGE BODY COLOR ON DARKMODE CHANGE *****
   useEffect(() => {
@@ -60,6 +63,36 @@ function App() {
     localStorage.setItem('darkMode', JSON.stringify(darkMode))
     localStorage.setItem('showWatchlist', JSON.stringify(showWatchlist))
   }, [myWatchlist, darkMode, showWatchlist])
+
+  // ***** SEARCH HANDLER - FETCH DATA *****
+  function handleSearch(e) {
+    fetch(
+      `https://api.themoviedb.org/3/search/movie?api_key=${tmdbKey}&language=en-US&query=${e.target.value}&page=1`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.errors) {
+          setNoResults(false)
+        } else if (data.total_results === 0) {
+          setNoResults(true)
+          setSearchResults([])
+        } else if (data.results.length > 0) {
+          setSearchResults(
+            data.results.map((movie) => ({
+              id: movie.id,
+              poster: `https://image.tmdb.org/t/p/w500/${movie.poster_path}`,
+              title: movie.title,
+              rating: movie.vote_average,
+              date: movie.release_date ? movie.release_date.slice(0, 4) : 'N/A',
+              genre: movie.genre_ids,
+              plot: movie.overview,
+            }))
+          )
+          setNoResults(false)
+        }
+      })
+      .catch((err) => console.log(err))
+  }
 
   // ***** ADD MOVIE TO WATCHLIST HANDLER *****
   function addToWatchlist(poster, title, rating, date, genre, plot, cardId) {
@@ -201,6 +234,9 @@ function App() {
           darkMode={darkMode}
           addToWatchlist={addToWatchlist}
           showWatchlist={showWatchlist}
+          searchResults={searchResults}
+          handleSearch={handleSearch}
+          noResults={noResults}
         />
       )}
       {alert && duplicateMovieAlertEl}

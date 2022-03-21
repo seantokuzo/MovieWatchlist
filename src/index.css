@@ -23,7 +23,7 @@ body {
   /* border: 1px solid pink; */
 }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   body {
     font-size: 0.69rem;
   }
@@ -171,7 +171,7 @@ header > h5 {
   cursor: pointer;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   header > h5 {
     margin-top: 1em;
   }
@@ -381,7 +381,7 @@ p:nth-child(2) {
 
 @media (max-width: 900px) {
   .card-details-div p:nth-child(2) {
-    margin-left: .75rem;
+    margin-left: 0.75rem;
   }
 
   .card-details-div > .btn {
@@ -389,7 +389,7 @@ p:nth-child(2) {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   .movie-card-div {
     width: 90%;
     padding: 2rem 0;
@@ -401,7 +401,7 @@ p:nth-child(2) {
   }
 
   .card-non-img-div {
-    padding: 0 .5rem 0 0;
+    padding: 0 0.5rem 0 0;
   }
 
   .card-title-div > h2,
