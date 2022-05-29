@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Header from './components/Header.js'
 import SearchPage from './components/SearchPage.js'
 import Watchlist from './components/Watchlist.js'
+import logoDay from './img/seantokuzo-logo.png'
+import logoNight from './img/seantokuzo-logo-purp.png'
 
 function App() {
   const tmdbKey = '3259933c93801a8673fb6333e45681c4'
@@ -162,8 +164,10 @@ function App() {
   }
 
   const footieStyle = {
-    color: darkMode ? '#b077ba' : 'var(--plot-lm)',
+    color: darkMode ? 'var(--plot-lm)' : 'var(--plot-dm)',
   }
+
+  const logoImg = darkMode ? logoNight : logoDay
 
   // ***** DARKMODE TOGGLER ELEMENT *****
   const togglerEl = (
@@ -201,10 +205,9 @@ function App() {
             display: 'flex',
             alignItems: 'center',
             textDecoration: 'none',
-            color: '#b077ba',
           }}
         >
-          <img src={require('./img/seantokuzo-logo.png')} alt="logo" />
+          <img src={logoImg} alt="logo" />
           <h6 style={footieStyle}>
             A <span style={{ fontWeight: 'bolder' }}>{'<seantokuzo>'}</span> app
           </h6>
