@@ -162,7 +162,7 @@ function App() {
   }
 
   const footieStyle = {
-    color: darkMode ? 'var(--plot-dm)' : 'var(--plot-lm)',
+    color: darkMode ? '#b077ba' : 'var(--plot-lm)',
   }
 
   // ***** DARKMODE TOGGLER ELEMENT *****
@@ -191,16 +191,23 @@ function App() {
 
   // ***** FOOTER ELEMENT *****
   const footerEl = (
-    <footer style={bgStyle}>
+    <footer style={footieStyle}>
       <div>
         <a
           href="https://seantokuzo.dev"
           target="_blank"
           rel="noreferrer noopener"
-          style={{ display: 'flex', alignItems: 'center' }}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            textDecoration: 'none',
+            color: '#b077ba',
+          }}
         >
           <img src={require('./img/seantokuzo-logo.png')} alt="logo" />
-          <h6 style={footieStyle}>A {'<seantokuzo>'} App</h6>
+          <h6 style={footieStyle}>
+            A <span style={{ fontWeight: 'bolder' }}>{'<seantokuzo>'}</span> app
+          </h6>
         </a>
       </div>
       <div>
