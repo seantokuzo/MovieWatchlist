@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/MovieWatchlist/static/css/main.12f02464.css",
-    "main.js": "/MovieWatchlist/static/js/main.2d605b61.js",
+    "main.css": "/MovieWatchlist/static/css/main.58711c0a.css",
+    "main.js": "/MovieWatchlist/static/js/main.0d179d23.js",
     "static/media/header-bg-img.jpg": "/MovieWatchlist/static/media/header-bg-img.ae5dd3ebfa01a5f3ed53.jpg",
     "static/media/seantokuzo-logo-purp.png": "/MovieWatchlist/static/media/seantokuzo-logo-purp.55dff92d7cc3530251c4.png",
     "static/media/seantokuzo-logo.png": "/MovieWatchlist/static/media/seantokuzo-logo.5962c182a60c131bb43c.png",
     "index.html": "/MovieWatchlist/index.html",
-    "main.12f02464.css.map": "/MovieWatchlist/static/css/main.12f02464.css.map",
-    "main.2d605b61.js.map": "/MovieWatchlist/static/js/main.2d605b61.js.map"
+    "main.58711c0a.css.map": "/MovieWatchlist/static/css/main.58711c0a.css.map",
+    "main.0d179d23.js.map": "/MovieWatchlist/static/js/main.0d179d23.js.map"
   },
   "entrypoints": [
-    "static/css/main.12f02464.css",
-    "static/js/main.2d605b61.js"
+    "static/css/main.58711c0a.css",
+    "static/js/main.0d179d23.js"
   ]
 }
