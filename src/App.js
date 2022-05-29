@@ -164,7 +164,8 @@ function App() {
   }
 
   const footieStyle = {
-    color: darkMode ? 'var(--plot-lm)' : 'var(--plot-dm)',
+    color: darkMode ? 'var(--plot-dm)' : 'var(--plot-lm)',
+    backgroundColor: darkMode ? 'var(--bg-dark)' : 'var(--bg-light)',
   }
 
   const logoImg = darkMode ? logoNight : logoDay
