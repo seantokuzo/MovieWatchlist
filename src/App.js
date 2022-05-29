@@ -13,12 +13,6 @@ function App() {
   const [noResults, setNoResults] = useState(false)
   const [searchResults, setSearchResults] = useState([])
 
-  // useEffect(() => {
-  //   if (myWatchlist.length > 0) {
-  //     setShowWatchlist(true)
-  //   }
-  // }, [])
-
   // ***** CHANGE BODY COLOR ON DARKMODE CHANGE *****
   useEffect(() => {
     if (darkMode) {
@@ -199,8 +193,15 @@ function App() {
   const footerEl = (
     <footer style={bgStyle}>
       <div>
-        <img src={require('./img/thecrackerjaps-anim.png')} alt="logo" />
-        <h6 style={footieStyle}>A CrackerJap App</h6>
+        <a
+          href="https://seantokuzo.dev"
+          target="_blank"
+          rel="noreferrer noopener"
+          style={{ display: 'flex', alignItems: 'center' }}
+        >
+          <img src={require('./img/seantokuzo-logo.png')} alt="logo" />
+          <h6 style={footieStyle}>A {'<seantokuzo>'} App</h6>
+        </a>
       </div>
       <div>
         <h6 style={footieStyle}>Powered by</h6>
