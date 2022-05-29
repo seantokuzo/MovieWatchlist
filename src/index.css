@@ -240,6 +240,10 @@ input[type='text']:focus {
   /* animation: flip 500ms ease-in; */
 }
 
+.movie-card-div:last-child {
+  border-bottom: none;
+}
+
 @media (max-width: 900px) {
   .movie-card-div {
     width: 80%;
