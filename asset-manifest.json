@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/MovieWatchlist/static/css/main.58711c0a.css",
+    "main.css": "/MovieWatchlist/static/css/main.a28660a0.css",
     "main.js": "/MovieWatchlist/static/js/main.0d179d23.js",
     "static/media/header-bg-img.jpg": "/MovieWatchlist/static/media/header-bg-img.ae5dd3ebfa01a5f3ed53.jpg",
     "static/media/seantokuzo-logo-purp.png": "/MovieWatchlist/static/media/seantokuzo-logo-purp.55dff92d7cc3530251c4.png",
     "static/media/seantokuzo-logo.png": "/MovieWatchlist/static/media/seantokuzo-logo.5962c182a60c131bb43c.png",
     "index.html": "/MovieWatchlist/index.html",
-    "main.58711c0a.css.map": "/MovieWatchlist/static/css/main.58711c0a.css.map",
+    "main.a28660a0.css.map": "/MovieWatchlist/static/css/main.a28660a0.css.map",
     "main.0d179d23.js.map": "/MovieWatchlist/static/js/main.0d179d23.js.map"
   },
   "entrypoints": [
-    "static/css/main.58711c0a.css",
+    "static/css/main.a28660a0.css",
     "static/js/main.0d179d23.js"
   ]
 }
