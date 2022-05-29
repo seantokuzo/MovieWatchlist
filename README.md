@@ -8,7 +8,6 @@
 <h3 align="center">In today's world, even wasting your time must be optimized</h3>
 <h5 align="center">Stop forgetting what you wanted to watch and make a watchlist</h5>
 <br>
-<br>
 <h4>Check it out<h4>
 <a href="https://seantokuzo.github.io/MovieWatchlist">
 RIGHT HERE
