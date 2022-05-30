@@ -2,7 +2,7 @@
 <br>
 <p align="center">
   <img align="center" width="49%" margin="20px" alt="bobby-shmurdle_gh-preview_readme" src="https://seantokuzo-bucket.s3.us-west-1.amazonaws.com/portfolio-img/project-images/movie-watchlist_readme-img1.png">
-  <img align="center" width="49%" alt="bobby-shmurdle_gh-preview_readme" src="https://seantokuzo-bucket.s3.us-west-1.amazonaws.com/portfolio-img/project-images/movie-watchlist_readme-img2.png">
+  <img align="center" width="49%" alt="Movie Watchlist thumbnail" src="https://seantokuzo-bucket.s3.us-west-1.amazonaws.com/portfolio-img/project-images/movie-watchlist_readme-img2.png">
 </p>
 <h1 align="center">Movie Watchlist</h1>
 <h3 align="center">In today's world, even wasting your time must be optimized</h3>
@@ -27,9 +27,9 @@ RIGHT HERE
  </p>
 <br>
   <p align="center">
-    <a href="https://github.com/seantokuzo/bobby-shmurdle/issues">Report Bug</a>
+    <a href="https://github.com/seantokuzo/MovieWatchlist/issues">Report Bug</a>
     ·
-    <a href="https://github.com/seantokuzo/bobby-shmurdle/issues">Request Feature</a>
+    <a href="https://github.com/seantokuzo/MovieWatchlist/issues">Request Feature</a>
   </p>
   <br>
   <br>
